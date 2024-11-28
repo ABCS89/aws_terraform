@@ -1,0 +1,24 @@
+# Arquivos de estado do Terraform
+*.tfstate
+*.tfstate.backup
+
+# Logs e saída de plano
+*.log
+*.plan
+
+# Diretório do Terraform
+.terraform/
+
+# Arquivos sensíveis (chaves ou credenciais)
+*.key
+*.pem
+*.json
+secrets/
+
+# Configurações locais específicas
+*.tfvars
+terraform.tfvars
+
+
+# Diretório da versão aws
+.terraform/providers/registry.terraform.io/hashicorp/aws/5.78.0/linux_amd64/terraform-provider-aws_v5.78.0_x5

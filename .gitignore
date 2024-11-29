@@ -1,6 +1,7 @@
 # Arquivos de estado do Terraform
-*.tfstate
-*.tfstate.backup
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
 
 # Logs e saída de plano
 *.log

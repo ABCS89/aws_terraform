@@ -9,6 +9,6 @@ variable "environment" {
 }
 
 variable "teste" {
-  type = string
-  default = "teste."
+  type    = string
+  default = "teste"
 }

@@ -27,47 +27,12 @@ resource "aws_internet_gateway" "igw" {
 }
 
 # ROUTE TABLE
-resource "aws_route_table" "rt" {
-  vpc_id = aws_vpc.vpc.id
+resource "aws_route_table" "example" {
+  vpc_id = aws_vpc.example.id
 
-  route = [{
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.igw.id
-  }]
+  route = []
 
   tags = {
-    Name = "route_table-terraform"
+    Name = "example"
   }
 }
-
-resource "aws_route_table_association" "rta" {
-  subnet_id      = aws_subnet.subnet.id
-  route_table_id = aws_route_table.rt.id
-}
-
-# SECURITY GROUP
-resource "aws_security_group" "sg" {
-  name        = "security_group-terraform"
-  description = "Permitir acesso na porta 22"
-  vpc_id      = aws_vpc.vpc.id
-
-  ingress = {
-    description = "SSH"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_block  = ["0.0.0.0/0"]
-  }
-
-  egress = {
-    from_port  = 0
-    to_port    = 0
-    protocol   = "-1"
-    cidr_block = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "security_group-terraform"
-  }
-}
-
